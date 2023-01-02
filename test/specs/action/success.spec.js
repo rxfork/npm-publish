@@ -44,6 +44,7 @@ describe("GitHub Action - success tests", () => {
       },
     });
 
+    console.log(cli.stdout);
     expect(cli).to.have.stderr("");
     expect(cli).stdout.to.include("my-lib 2.0.0");
     expect(cli).stdout.to.include(
