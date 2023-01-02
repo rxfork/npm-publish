@@ -12,6 +12,7 @@ export interface NormalizedOptions {
   package: string;
   tag: string;
   access?: Access;
+  target: string;
   dryRun: boolean;
   checkVersion: boolean;
   greaterVersionOnly: boolean;
@@ -36,6 +37,7 @@ export function normalizeOptions(options: Options): NormalizedOptions {
     package: options.package || "package.json",
     tag: options.tag || "latest",
     access: options.access,
+    target: options.target || "",
     dryRun: options.dryRun || false,
     checkVersion:
       options.checkVersion === undefined ? true : Boolean(options.checkVersion),

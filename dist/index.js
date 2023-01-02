@@ -4982,6 +4982,7 @@ function normalizeOptions(options) {
         package: options.package || "package.json",
         tag: options.tag || "latest",
         access: options.access,
+        target: options.target || "",
         dryRun: options.dryRun || false,
         checkVersion: options.checkVersion === undefined ? true : Boolean(options.checkVersion),
         greaterVersionOnly: options.greaterVersionOnly === undefined
@@ -5256,6 +5257,9 @@ exports.npm = {
             if (options.dryRun) {
                 command.push("--dry-run");
             }
+            if (options.target) {
+                command.push(options.target);
+            }
             // Run "npm publish" in the package.json directory
             let cwd = (0, path_1.resolve)((0, path_1.dirname)(options.package));
             // Determine whether to suppress NPM's output
@@ -5498,6 +5502,7 @@ async function main() {
             checkVersion: (0, core_1.getInput)("check-version", { required: true }).toLowerCase() === "true",
             tag: (0, core_1.getInput)("tag"),
             access: (0, core_1.getInput)("access"),
+            target: (0, core_1.getInput)("target"),
             dryRun: (0, core_1.getInput)("dry-run").toLowerCase() === "true",
             greaterVersionOnly: (0, core_1.getInput)("greater-version-only").toLowerCase() === "true",
             debug: debugHandler,
