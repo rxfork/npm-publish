@@ -20,6 +20,7 @@ async function main(): Promise<void> {
       checkVersion: getInput("check-version", { required: true }).toLowerCase() === "true",
       tag: getInput("tag"),
       access: getInput("access") as Access,
+      target: getInput("target"),
       dryRun: getInput("dry-run").toLowerCase() === "true",
       debug: debugHandler,
     };
