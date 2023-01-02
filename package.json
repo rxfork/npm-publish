@@ -36,7 +36,7 @@
     "build:ncc": "ncc build src/action/index.ts --source-map --external semver",
     "build:node_modules": "shx mkdir -p dist/node_modules && shx cp -r node_modules/semver dist/node_modules",
     "watch": "tsc --watch",
-    "test": "mocha && npm run lint",
+    "test": "NODE_ENV=test mocha && npm run lint",
     "coverage": "nyc -x test -x dist/sourcemap-register.js node_modules/mocha/bin/mocha",
     "upgrade": "npm-check -u && npm audit fix",
     "release": "npm run clean && npm run build && npm test && npm run bump"
