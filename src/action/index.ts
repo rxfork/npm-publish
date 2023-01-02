@@ -69,7 +69,7 @@ async function main(): Promise<void> {
  */
 function setOutput(...args: Parameters<typeof setOutputActionsCore>) {
   if (process.env.NODE_ENV === "test") {
-    console.log(`TEST-set-output name=${args[0]}::${args[1]}`);
+    console.log(`TEST::set-output name=${args[0]}::${args[1]}`);
     return;
   }
   return setOutputActionsCore(...args);
