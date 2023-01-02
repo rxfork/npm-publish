@@ -45,26 +45,26 @@ describe("GitHub Action - success tests", () => {
     });
 
     throw new Error(cli.stdout);
-    expect(cli).to.have.stderr("");
-    expect(cli).stdout.to.include("my-lib 2.0.0");
-    expect(cli).stdout.to.include(
-      "Successfully published my-lib v2.0.0 to https://registry.npmjs.org/"
-    );
-    expect(cli).stdout.to.include("TEST::set-output name=type::major");
-    expect(cli).stdout.to.include("TEST::set-output name=version::2.0.0");
-    expect(cli).stdout.to.include("TEST::set-output name=old-version::1.0.0");
-    expect(cli).stdout.to.include("TEST::set-output name=tag::latest");
-    expect(cli).stdout.to.include("TEST::set-output name=access::public");
-    expect(cli).stdout.to.include("TEST::set-output name=dry-run::false");
-    expect(cli).to.have.exitCode(0);
+    // expect(cli).to.have.stderr("");
+    // expect(cli).stdout.to.include("my-lib 2.0.0");
+    // expect(cli).stdout.to.include(
+    //   "Successfully published my-lib v2.0.0 to https://registry.npmjs.org/"
+    // );
+    // expect(cli).stdout.to.include("TEST::set-output name=type::major");
+    // expect(cli).stdout.to.include("TEST::set-output name=version::2.0.0");
+    // expect(cli).stdout.to.include("TEST::set-output name=old-version::1.0.0");
+    // expect(cli).stdout.to.include("TEST::set-output name=tag::latest");
+    // expect(cli).stdout.to.include("TEST::set-output name=access::public");
+    // expect(cli).stdout.to.include("TEST::set-output name=dry-run::false");
+    // expect(cli).to.have.exitCode(0);
 
-    files.assert.contents(
-      "home/.npmrc",
-      `//registry.npmjs.org/:_authToken=\${INPUT_TOKEN}${EOL}` +
-        `registry=https://registry.npmjs.org/${EOL}`
-    );
+    // files.assert.contents(
+    //   "home/.npmrc",
+    //   `//registry.npmjs.org/:_authToken=\${INPUT_TOKEN}${EOL}` +
+    //     `registry=https://registry.npmjs.org/${EOL}`
+    // );
 
-    npm.assert.ran(4);
+    // npm.assert.ran(4);
   });
 
   it("should publish a new version to NPM if the version is lower", () => {
